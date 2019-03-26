@@ -95,6 +95,63 @@
       <div class="outer">
         <section id="main" class="body-wrap">
   
+    <article id="post-stm32常用函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/26/stm32常用函数/">stm32常用函数</a>
+    </h1>
+  
+
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2019/03/26/stm32常用函数/">
+                
+                <img src="http://yoursite.com/images/banner.jpg" alt="stm32常用函数" title="stm32常用函数">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                IO头文件 123头文件 :  stm32f10x_gpio.h源文件 :  stm32f10x_gpio.c
+ GPIO结构体介绍 123456struct fff&#123; GPIO Pine; //那个口 GPIO Speed;//IO口速度  GPIO Mode;//IO口模式&#125;
+常用IO函数1void GPIO_init(  GPIO_TypeDef...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2019-03-26</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/stm32/" class="color1">stm32</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2019/03/26/stm32常用函数/#more" class="article-more-link">more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
     <article id="post-EOJ-Monthly-2019-3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -111,26 +168,18 @@
     
     <div class="article-entry " itemprop="articleBody">
       
-            
-            <h4 id="B-回文串"><a href="#B-回文串" class="headerlink" title="B. 回文串"></a>B. 回文串</h4><p> 单点时限: 2.0 sec<br> 内存限制: 512 MB<br>QQ 小方以前不会判断回文数列，现在他会了，所以他急切的想教会你。回文数列指的是一个正读和反读都一样的数列，比如 “1 2 3 2 1” 和 “1 2 2 1”。单单讲给你听肯定是不够的，为了表现自己，QQ 小方现在要考考你。<br>现在 QQ 小方会给你 n个数组成的数列 a1,a2,⋯,an。他每次操作允许你合并其中相邻的两个数 ai和 ai+1(i&lt;)，合并以后的两个数留在原来的位置（两个数合并以后只会留下一个数），但会变成ai+ai+1。QQ 小方想知道最少需要几次这样的操作，这个数列就会变成回文数列。<br>输入格式<br>输入包含两行，第一行一个整数 n(1≤n≤106)，表示数列的长度。第二行包含 n个用空格隔开的数<br>a1,a2,⋯,an(0≤ai≤109)，表示数列。<br>输出格式<br>输出包含一个整数，表示最少的操作次数。<br>样例<br>Input<br>3<br>1 2 3<br>Output<br>1<br>Input<br>3<br>1 2 4<br>Output<br>2<br>Input<br>3<br>3 3 3<br>Output<br>0<br>提示<br>对于样例一：只需要一步，即合并前两个。<br>对于样例二：只有合并成一个数的时候，才满足回文数列的要求，所以需要两步。<br>对于样例三：本身就是一个回文数列，不需要合并操作。</p>
-<h5 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h5><p> 贪心 建立一个数组设立左右下标 然后左右维护直到左下标等于右下标</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">long long num[1000005];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,left,right,sum=0;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    for(int i=1;i&lt;=n;i++) scanf(&quot;%lld&quot;,&amp;num[i]);</span><br><span class="line">    left=1;</span><br><span class="line">    right=n;</span><br><span class="line">    while(1)&#123;</span><br><span class="line">        if(left&gt;=right) break;</span><br><span class="line">        if(num[left]&lt;num[right])&#123;</span><br><span class="line">            num[left+1]=num[left]+num[left+1];</span><br><span class="line">            left++;</span><br><span class="line">            sum++;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(num[left]&gt;num[right])&#123;</span><br><span class="line">            num[right-1]=num[right]+num[right-1];</span><br><span class="line">            right--;</span><br><span class="line">            sum++;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d&quot;,sum);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="D-宇恒棋"><a href="#D-宇恒棋" class="headerlink" title="D. 宇恒棋"></a>D. 宇恒棋</h4><p> 单点时限: 1.0 sec<br> 内存限制: 256 MB<br>QQ小方以前不会下宇恒棋，现在他会了，所以他急切的想教会你。<br>宇恒棋的规则是这样的：在一个 n×m的棋盘上，QQ小方和你各有一枚棋子。你们轮流行动，每一次轮到一方的回合时，他必须把自己的棋子往上，下，左或右移动一格，但不能超出棋盘的边界。如果这一方的棋子吃掉了另一方的棋子，也就是这一方在他的回合将自己的棋子移动到了另一方棋子的位置上，那这一方就赢得了这局比赛但单单讲给你听肯定是不够的，为了表现自己，QQ小方现在要考考你。<br>现在，该轮到QQ小方行动了。QQ小方想知道在双方采取最优策略的情况下，比赛结果究竟会是怎样的。<br>输入格式<br>第一行两个数 n,m( 1≤n,m≤100)，代表棋盘有 n行 m列。<br>第二行四个整数<br>x1,y1,x2,y2( 1≤x1,x2≤n,1≤y1,y2≤m)，代表QQ小方的棋子在第 x1行 y1列，而你的棋子在第 x2行 y2列，保证一开始给出的两个棋子坐标不会重合。<br>输出格式<br>一行一个字符串，如果你赢则输出 Win，如果QQ小方赢则输出 Lose，如果平局则输出 Tie。</p>
-<h5 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h5><p>蜜汁感觉两个人是不可能平局的 因为当一个人退步时另一个人肯定会逼近 然后就只有你死我活了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,m;</span><br><span class="line">    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);</span><br><span class="line">    int x,y,a,b;</span><br><span class="line">    scanf(&quot;%d%d%d%d&quot;,&amp;x,&amp;y,&amp;a,&amp;b);</span><br><span class="line">    int p,q;</span><br><span class="line">    p=abs(x-a);</span><br><span class="line">    q=abs(y-b);</span><br><span class="line">    if((p+q)%2) printf(&quot;Lose&quot;);</span><br><span class="line">    else printf(&quot;Win&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            <div class="post-copyright">
-    <div class="content">
-        <p>最后更新： 2019年03月25日 21:41</p>
-        <p>原始链接： <a class="post-url" href="/2019/03/22/EOJ-Monthly-2019-3/" title="EOJ Monthly 2019.3">http://yoursite.com/2019/03/22/EOJ-Monthly-2019-3/</a></p>
-        <footer>
-            <a href="http://yoursite.com">
-                <img src="/images/timg[5].jpg" alt="chenboluo">
-                chenboluo
+        <div class="article-img">
+            <a href="/2019/03/22/EOJ-Monthly-2019-3/">
+                
+                <img src="http://yoursite.com/images/banner.jpg" alt="EOJ Monthly 2019.3" title="EOJ Monthly 2019.3">
+                
             </a>
-        </footer>
-    </div>
-</div>
-
+        </div>
+        <div class="article-feed">
+            <p>
+                B. 回文串 单点时限: 2.0 sec 内存限制: 512 MBQQ 小方以前不会判断回文数列，现在他会了，所以他急切的想教会你。回文数列指的是一个正读和反读都一样的数列，比如 “1 2 3 2 1” 和 “1 2 2 1”。单单讲给你听肯定是不够的，为了表现自己，QQ 小方现在要考考你。现在 QQ 小方会给你 n个数组成的数列 a1,a2,⋯,an。他每次操作允许你合...
+            </p>
+        </div>
       
         
     </div>
@@ -215,7 +264,7 @@
             
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/ACM/" style="font-size: 10px;">ACM</a>
+            <a href="/tags/ACM/" style="font-size: 10px;">ACM</a> <a href="/tags/stm32/" style="font-size: 10px;">stm32</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -248,7 +297,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/ACM/" style="font-size: 10px;">ACM</a>
+            <a href="/tags/ACM/" style="font-size: 10px;">ACM</a> <a href="/tags/stm32/" style="font-size: 10px;">stm32</a>
         </div>
     </div>
 </div>
