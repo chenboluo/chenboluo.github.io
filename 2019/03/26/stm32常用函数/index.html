@@ -8,18 +8,18 @@
   
     <meta name="keywords" content="Chenboluo's Blog">
   
-  <meta name="description" content="IO头文件 123头文件 :  stm32f10x_gpio.h源文件 :  stm32f10x_gpio.c  GPIO结构体介绍 123456struct fff&amp;#123; GPIO Pine; //那个口 GPIO Speed;//IO口速度  GPIO Mode;//IO口模式&amp;#125; 常用IO函数1void GPIO_init(  GPIO_TypeDef *GPIOx , GPI">
+  <meta name="description" content="IO头文件 12头文件 :  stm32f10x_gpio.h源文件 :  stm32f10x_gpio.c  GPIO结构体介绍 123456struct fff&amp;#123; GPIO Pine; //那个口 GPIO Speed;//IO口速度  GPIO Mode;//IO口模式&amp;#125; 常用IO函数1void GPIO_init(  GPIO_TypeDef *GPIOx , GPIO">
 <meta name="keywords" content="stm32">
 <meta property="og:type" content="article">
 <meta property="og:title" content="stm32常用函数">
 <meta property="og:url" content="http://yoursite.com/2019/03/26/stm32常用函数/index.html">
 <meta property="og:site_name" content="网页要崩溃啦~">
-<meta property="og:description" content="IO头文件 123头文件 :  stm32f10x_gpio.h源文件 :  stm32f10x_gpio.c  GPIO结构体介绍 123456struct fff&amp;#123; GPIO Pine; //那个口 GPIO Speed;//IO口速度  GPIO Mode;//IO口模式&amp;#125; 常用IO函数1void GPIO_init(  GPIO_TypeDef *GPIOx , GPI">
+<meta property="og:description" content="IO头文件 12头文件 :  stm32f10x_gpio.h源文件 :  stm32f10x_gpio.c  GPIO结构体介绍 123456struct fff&amp;#123; GPIO Pine; //那个口 GPIO Speed;//IO口速度  GPIO Mode;//IO口模式&amp;#125; 常用IO函数1void GPIO_init(  GPIO_TypeDef *GPIOx , GPIO">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-26T14:44:27.425Z">
+<meta property="og:updated_time" content="2019-03-26T15:17:25.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="stm32常用函数">
-<meta name="twitter:description" content="IO头文件 123头文件 :  stm32f10x_gpio.h源文件 :  stm32f10x_gpio.c  GPIO结构体介绍 123456struct fff&amp;#123; GPIO Pine; //那个口 GPIO Speed;//IO口速度  GPIO Mode;//IO口模式&amp;#125; 常用IO函数1void GPIO_init(  GPIO_TypeDef *GPIOx , GPI">
+<meta name="twitter:description" content="IO头文件 12头文件 :  stm32f10x_gpio.h源文件 :  stm32f10x_gpio.c  GPIO结构体介绍 123456struct fff&amp;#123; GPIO Pine; //那个口 GPIO Speed;//IO口速度  GPIO Mode;//IO口模式&amp;#125; 常用IO函数1void GPIO_init(  GPIO_TypeDef *GPIOx , GPIO">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -127,17 +127,17 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h4 id="IO头文件"><a href="#IO头文件" class="headerlink" title="IO头文件"></a>IO头文件</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">头文件 :  stm32f10x_gpio.h</span><br><span class="line">源文件 :  stm32f10x_gpio.c</span><br></pre></td></tr></table></figure>
+            <h4 id="IO头文件"><a href="#IO头文件" class="headerlink" title="IO头文件"></a>IO头文件</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">头文件 :  stm32f10x_gpio.h</span><br><span class="line">源文件 :  stm32f10x_gpio.c</span><br></pre></td></tr></table></figure>
 <p> GPIO结构体介绍<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">struct fff&#123;</span><br><span class="line"> GPIO Pine; //那个口</span><br><span class="line"> GPIO Speed;//IO口速度</span><br><span class="line">  GPIO Mode;//IO口模式</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="常用IO函数"><a href="#常用IO函数" class="headerlink" title="常用IO函数"></a>常用IO函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void GPIO_init(  GPIO_TypeDef *GPIOx , GPIO_TypeDef *GPIO_initstruct )   //设置IO的模式</span><br></pre></td></tr></table></figure>
 <p> 输入参数1：   GPIOx：x可以是A，B，C，D或者E，来选择GPIO外设<br>输入参数2：   GPIO_InitStruct：指向结构GPIO_InitTypeDef的指针，包含了外设GPIO的配置信息 （  在这个之前，我已经对GPIO_InitTypeDef中的各个参数进行了定义，对应的正是void GPIO_Init(GPIO_TypeDef<em> GPIOx, GPIO_InitTypeDef</em> GPIO_InitStruct)输入参数2的描述“指向结构GPIO_InitTypeDef的指针，包含了外设GPIO的配置信息”。）</p>
 <h5 id="读取控制输入电平"><a href="#读取控制输入电平" class="headerlink" title="读取控制输入电平"></a>读取控制输入电平</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nint8_t GPIO_ReadInputDataBit(GPIO_TypeDef*Gpiox,unit16 t GPIO_Pin); //读取单个输入端口的数据   </span><br><span class="line">nint16_t GPIO_ReadInoutData(GPIO_TypeDef*Gpiox);    //读取这个端口的数据</span><br></pre></td></tr></table></figure>
 <h5 id="读取输出电平"><a href="#读取输出电平" class="headerlink" title="读取输出电平"></a>读取输出电平</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nint8_t GPIO_ReadOutputDataBit(GPIO_TypeDef*Gpiox);   </span><br><span class="line">nint16_t GPIO_ReadOutputData( GPIO_TypeDef*Gpiox,unit16 t GPIO_Pin); //读取输出电平</span><br></pre></td></tr></table></figure>
-<h5 id="设置输出电平"><a href="#设置输出电平" class="headerlink" title="设置输出电平"></a>设置输出电平</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void GPIO_SetBits(GPIO_TypeDef*Gpiox,unit16 t GPIO_Pin);      //设置输出电平  //设置为1</span><br><span class="line">void  GPIO_ResetBits(GPIO_TypeDef*Gpiox,unit16 t GPIO_Pin); // 前两个常用    //设置为0</span><br><span class="line">void GPIO_WriteBIT(GPIO_TypeDef*Gpiox,unit16 t GPIO_Pin，BitAction BitVal);  //单个赋值</span><br><span class="line"> void GPIO_Write(GPIO_TypeDef*Gpiox,unit16_t PorVal);   //群体赋值</span><br></pre></td></tr></table></figure>
+<h5 id="设置输出电平（前两个常用）"><a href="#设置输出电平（前两个常用）" class="headerlink" title="设置输出电平（前两个常用）"></a>设置输出电平（前两个常用）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void GPIO_SetBits(GPIO_TypeDef*Gpiox,unit16 t GPIO_Pin);       //设置为1</span><br><span class="line">void  GPIO_ResetBits(GPIO_TypeDef*Gpiox,unit16 t GPIO_Pin);   //设置为0</span><br><span class="line">void GPIO_WriteBIT(GPIO_TypeDef*Gpiox,unit16 t GPIO_Pin，BitAction BitVal);  //单个赋值</span><br><span class="line"> void GPIO_Write(GPIO_TypeDef*Gpiox,unit16_t PorVal);                     //群体赋值</span><br></pre></td></tr></table></figure>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年03月26日 22:44</p>
+        <p>最后更新： 2019年03月26日 23:17</p>
         <p>原始链接： <a class="post-url" href="/2019/03/26/stm32常用函数/" title="stm32常用函数">http://yoursite.com/2019/03/26/stm32常用函数/</a></p>
         <footer>
             <a href="http://yoursite.com">
@@ -255,12 +255,22 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#IO头文件"><span class="post-toc-text">IO头文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#常用IO函数"><span class="post-toc-text">常用IO函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#读取控制输入电平"><span class="post-toc-text">读取控制输入电平</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#读取输出电平"><span class="post-toc-text">读取输出电平</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#设置输出电平"><span class="post-toc-text">设置输出电平</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#IO头文件"><span class="post-toc-text">IO头文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#常用IO函数"><span class="post-toc-text">常用IO函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#读取控制输入电平"><span class="post-toc-text">读取控制输入电平</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#读取输出电平"><span class="post-toc-text">读取输出电平</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#设置输出电平（前两个常用）"><span class="post-toc-text">设置输出电平（前两个常用）</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
+  
+    <a href="/2019/03/27/ACM训练赛/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          训练赛
+        
+      </span>
+    </a>
   
   
     <a href="/2019/03/22/EOJ-Monthly-2019-3/" id="article-nav-older" class="article-nav-link-wrap">
@@ -343,7 +353,7 @@
             
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/ACM/" style="font-size: 10px;">ACM</a> <a href="/tags/stm32/" style="font-size: 10px;">stm32</a>
+            <a href="/tags/ACM/" style="font-size: 20px;">ACM</a> <a href="/tags/stm32/" style="font-size: 10px;">stm32</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -376,7 +386,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/ACM/" style="font-size: 10px;">ACM</a> <a href="/tags/stm32/" style="font-size: 10px;">stm32</a>
+            <a href="/tags/ACM/" style="font-size: 20px;">ACM</a> <a href="/tags/stm32/" style="font-size: 10px;">stm32</a>
         </div>
     </div>
 </div>
