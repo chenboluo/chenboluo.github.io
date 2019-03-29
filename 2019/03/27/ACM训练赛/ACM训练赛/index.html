@@ -12,14 +12,16 @@
 <meta name="keywords" content="ACM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="训练赛">
-<meta property="og:url" content="http://yoursite.com/2019/03/27/ACM训练赛/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/27/ACM训练赛/ACM训练赛/index.html">
 <meta property="og:site_name" content="网页要崩溃啦~">
 <meta property="og:description" content="足球比赛描述在2009的中国城市足球比赛中，在2^N支队中，有一些队在开赛前宣布了退出比赛。比赛采取的是淘汰赛。比如有4支队伍参加，那么1队和2队比赛，3队和4队赛，然后1队和2队的胜者与3队和4队的胜者争夺冠军。但是由于某些队伍退出，那么如果某个原本存在的比赛只有一个支队，那么这一支队自动晋级，如果没有队伍出现，那么就跟本没有比赛。比如，1队和2队退出比赛，那么就只有3队和4队的比赛，然后其胜者">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-28T04:46:51.057Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/27/ACM训练赛/ACM训练赛/dog.jpg">
+<meta property="og:updated_time" content="2019-03-28T15:39:56.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="训练赛">
 <meta name="twitter:description" content="足球比赛描述在2009的中国城市足球比赛中，在2^N支队中，有一些队在开赛前宣布了退出比赛。比赛采取的是淘汰赛。比如有4支队伍参加，那么1队和2队比赛，3队和4队赛，然后1队和2队的胜者与3队和4队的胜者争夺冠军。但是由于某些队伍退出，那么如果某个原本存在的比赛只有一个支队，那么这一支队自动晋级，如果没有队伍出现，那么就跟本没有比赛。比如，1队和2队退出比赛，那么就只有3队和4队的比赛，然后其胜者">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/27/ACM训练赛/ACM训练赛/dog.jpg">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -98,7 +100,7 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="n-ACM训练赛" class="article article-type-n" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="n-ACM训练赛/ACM训练赛" class="article article-type-n" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -151,11 +153,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int f[N],SG[N];</span><br><span class="line">bool S[M];</span><br><span class="line">void getSG(int n)</span><br><span class="line">&#123;</span><br><span class="line">    memset(SG,0,sizeof(SG));</span><br><span class="line">    for(int i=1;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        memset(S,false,sizeof(S));</span><br><span class="line">        for(int j=1;f[j]&lt;=i&amp;&amp;j&lt;M;j++)</span><br><span class="line">        &#123;</span><br><span class="line">             S[SG[i-f[j]]]=true;</span><br><span class="line">        &#125;</span><br><span class="line">        while(S[SG[i]]) SG[i]++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="捉迷藏"><a href="#捉迷藏" class="headerlink" title="捉迷藏"></a>捉迷藏</h4><p>Anna正在和一群朋友在玩捉迷藏游戏。这种游戏由若干人一起玩，其中一个人为“鬼”，其他人藏在N个房间，由鬼来找这些人。Anna想计算出N(2 &lt;= N &lt;= 20,000)个房间（编号为1……N）中她应该藏哪一间？<br>Anna知道“鬼”会从房间1开始找。所有房间被M条双向路连接M (1&lt;= M &lt;= 50,000)，这种双向路以（A_i，B_i）表示，其中1&lt;=A_i&lt;=N;1&lt;=B_i&lt;=N; A_i!=B_i。通过这些双向路，任意两个房间之间都可以到达。<br>Anna觉得离房间1最远的那个房间最安全（相邻两个房间之间的距离为1），请你帮Anna编写一个程序找出她应该躲在哪个房间。<br>输入<br>第一行为N和M;第2行至第M+1行，分别包含一条路（A_i,B_i）。<br>输出<br>仅有一行，包含三个整数I、J、K，分别表示Anna应该躲的房间号（如果有多解，输出编号最小的）、房间1到Anna躲的房间的距离、Anna可以躲的房间数目。<br>输入样例 1<br>6 7<br>3 6<br>4 3<br>3 2<br>1 3<br>1 2<br>2 4<br>5 2<br>输出样例 1<br>4 2 3</p>
 <h5 id="思路-6"><a href="#思路-6" class="headerlink" title="思路"></a>思路</h5><p>用bfs进行搜索 并用set存储各个房间的位置 不然容易超时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">#define maxn 20002</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">//bool mmp[maxn][maxn];</span><br><span class="line">struct node&#123;</span><br><span class="line"> bool vis;</span><br><span class="line"> int depth;</span><br><span class="line"> int num;</span><br><span class="line"> node()&#123;</span><br><span class="line"> vis=false;</span><br><span class="line"> depth=0;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;b[maxn];</span><br><span class="line">int s,start=0;</span><br><span class="line">int n,m;</span><br><span class="line">int maxx=0;</span><br><span class="line"></span><br><span class="line">bool cmp(const node &amp;a,const node &amp;c)&#123;</span><br><span class="line"> return a.depth&gt;c.depth;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">     set&lt;int&gt;mmp[maxn];</span><br><span class="line"></span><br><span class="line">    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);</span><br><span class="line">    for(int i=1;i&lt;=m;i++)&#123;</span><br><span class="line">        int x,y;</span><br><span class="line">        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);</span><br><span class="line">        mmp[x].insert(y);</span><br><span class="line">        mmp[y].insert(x);</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        b[i].num=i;</span><br><span class="line">    &#125;</span><br><span class="line">    queue&lt;node&gt;Q;</span><br><span class="line">    node a,now;</span><br><span class="line">    Q.push(b[1]);</span><br><span class="line">    b[1].vis=true;</span><br><span class="line">    while(!Q.empty())&#123;</span><br><span class="line">        now=Q.front();</span><br><span class="line">        Q.pop();</span><br><span class="line">        if(now.depth&gt;b[s].depth)&#123;</span><br><span class="line">            s=now.num;</span><br><span class="line">            start=1;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(now.depth==b[s].depth)&#123;</span><br><span class="line">             start++;</span><br><span class="line">             if(s&gt;now.num) s=now.num;</span><br><span class="line">    &#125;</span><br><span class="line">           set&lt;int&gt;::iterator iter = mmp[now.num].begin();</span><br><span class="line">           while (iter!=mmp[now.num].end())&#123;</span><br><span class="line">             if(!b[*iter].vis)&#123;</span><br><span class="line">             b[*iter].depth=now.depth+1;</span><br><span class="line">             b[*iter].vis=true;</span><br><span class="line">             Q.push(b[*iter]);</span><br><span class="line">             &#125;</span><br><span class="line">             iter++;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d %d %d\n&quot;,s,b[s].depth,start);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="dog.jpg" alt="photos" title="谁来带带我"></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年03月28日 12:46</p>
-        <p>原始链接： <a class="post-url" href="/2019/03/27/ACM训练赛/" title="训练赛">http://yoursite.com/2019/03/27/ACM训练赛/</a></p>
+        <p>最后更新： 2019年03月28日 23:39</p>
+        <p>原始链接： <a class="post-url" href="/2019/03/27/ACM训练赛/ACM训练赛/" title="训练赛">http://yoursite.com/2019/03/27/ACM训练赛/ACM训练赛/</a></p>
         <footer>
             <a href="http://yoursite.com">
                 <img src="/images/timg[5].jpg" alt="chenboluo">
@@ -212,7 +215,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/27/ACM训练赛/&title=《训练赛》 — 网页要崩溃啦~&pic=http://yoursite.comimages/timg[5].jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/27/ACM训练赛/ACM训练赛/&title=《训练赛》 — 网页要崩溃啦~&pic=http://yoursite.comimages/timg[5].jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -222,22 +225,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/27/ACM训练赛/&title=《训练赛》 — 网页要崩溃啦~&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/27/ACM训练赛/ACM训练赛/&title=《训练赛》 — 网页要崩溃啦~&source=" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/27/ACM训练赛/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/27/ACM训练赛/ACM训练赛/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《训练赛》 — 网页要崩溃啦~&url=http://yoursite.com/2019/03/27/ACM训练赛/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《训练赛》 — 网页要崩溃啦~&url=http://yoursite.com/2019/03/27/ACM训练赛/ACM训练赛/&via=http://yoursite.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/03/27/ACM训练赛/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/03/27/ACM训练赛/ACM训练赛/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -247,7 +250,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2019/03/27/ACM训练赛/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2019/03/27/ACM训练赛/ACM训练赛/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
